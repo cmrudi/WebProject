@@ -1,0 +1,64 @@
+#chat-button {
+	margin-top: 25px;
+	padding-top: 5px;
+	width: 50%;
+	float: left;
+	height: 40px;
+	background-color: #d1d1cc;
+	border-color: #F15A25 #d1d1cc #d1d1cc #d1d1cc;
+	border-style: solid;
+	color: #848181;
+	text-align: center;
+}
+
+#trip-button {
+	padding-top: 5px;
+	margin-top:25px;
+	width: 50%;
+	float: left;
+	height: 40px;
+	background-color: #afafae;
+	text-align: center;
+	color: #848181;
+}
+
+#chat-container {
+	position: relative;
+	width: 100%;
+	height: 400px;
+	float: left;
+	overflow:scroll
+}
+
+#chat-input-text {
+	margin-left: 5%;
+	width: 80%;
+	float: left;
+}
+#chat-input-button {
+	float: left;
+	width: 10%;
+	margin-right: 5%;
+}
+
+#chat-multi-container {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 450px;
+	background-color: #d1d1cc;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.text-message {
+	background-color: white;
+	display: inline-block;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 10px;
+}

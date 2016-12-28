@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html>
+<head> 
+ 
+ <!--Angulare -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script type="text/javascript" src="js/chat.js"></script>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+ 
+<!--Applicazione -->
+ 
+</head>
+<body ng-app="chatApp" ng-controller="chatController">
+ 	<p>Message :<input type="text" ng-model="newmessage.text"></p>
+ 	<button ng-click="insert(newmessage)">Add</button>
+    <ul>
+    	<li ng-repeat="message in messages">
+	 		{{message.text}}
+    	</li>
+	</ul>
+</body> 
+</html>
