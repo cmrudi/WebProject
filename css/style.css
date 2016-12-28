@@ -223,3 +223,46 @@ input[type="submit"]{
     margin-bottom: 0;
 }
 
+#over-image-div {
+	float: right;
+	position: relative;
+	width: 100px;
+	margin-top:30px;
+}
+
+.over-image-button {
+	appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: 0;
+    background: transparent;
+}
+
+.glyphicon.glyphicon-pushpin {
+    font-size: 25px;
+}
+
+.glyphicon.glyphicon-info-sign {
+    font-size: 25px;
+}
+
+.not-bookmarked {
+	appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: 0;
+    background: transparent;
+	color: white;
+}
+
+.bookmarked {
+	appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: 0;
+    background: transparent;
+	color: black;
+}

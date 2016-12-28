@@ -13,9 +13,9 @@
 
             firebase.initializeApp(config);
             const dbRef = firebase.database().ref().child('messages');
-            dbRef
             //dbRef.on('value', snap => console.log(snap.val()));
             var messages = $firebaseArray(dbRef);
+            console.log(messages);
             messages.$loaded().then(function(messages) {
                 $scope.messages = messages;
             });

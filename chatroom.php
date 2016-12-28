@@ -4,6 +4,7 @@
 	$locationId = $_GET["loc"];
 	$userId = $_GET["id"];
 	$imageURL = "http://$_SERVER[HTTP_HOST]/Piknix/location_img/";
+	$webInfoURL = "http://$_SERVER[HTTP_HOST]/Piknix/web-info.php?loc=";
 
 	$dbservername="localhost";
 	$dbusername="piknix";
@@ -19,8 +20,19 @@
 	$result = mysqli_query($conn,$query);
 	$row = $result->fetch_assoc();
 	$username = $row["username"];
+
+	$query = "SELECT * FROM bookmark WHERE user_id='$userId' AND location_id='$locationId'";
+	$result = mysqli_query($conn,$query);
+	if (mysqli_num_rows($result) > 0 ) {
+		$bookmarkClass = "bookmarked";
+	}
+	else {
+		$bookmarkClass = "not-bookmarked";
+	}
+
+
 	
-	$query = "SELECT id,title,location,image_file FROM destination WHERE id= '$locationId'";
+	$query = "SELECT id,title,location,image_file FROM destination WHERE id='$locationId'";
 	if ($result = mysqli_query($conn,$query)) {
 		$row = $result->fetch_assoc();
 
@@ -30,7 +42,7 @@
 <script type="text/javascript" src="js/chat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
 <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
-
+<script type="text/javascript" src="js/ajax.js"></script>
 <div class="row">
   <div class="col-sm-7">
     <div id="map"></div>
@@ -44,6 +56,10 @@
 			<div id="content-search-inside">
 				<p><?php echo $row["title"]; ?><p>
 				<p class="small-text"><?php echo $row["location"]; ?><p>
+			</div>
+			<div id="over-image-div">
+				<button id="bookmarkButton" class="<?php echo "over-image-button ".$bookmarkClass; ?>" onclick="addBookmark(<?php echo $userId.",".$locationId; ?>)"><span class="glyphicon glyphicon-pushpin"></span></button>
+				<button class="over-image-button" onclick=<?php echo "window.location.href='".$webInfoURL.$locationId."&id=".$id."'"; ?>><span class="glyphicon glyphicon-info-sign"></span></button>
 			</div>
 		</div>
 		<div class="chat-room" ng-app="chatApp" ng-controller="chatController">

@@ -2,7 +2,7 @@
 	get_header();
 	
 	$id = $_GET["id"];
-	$targetURL = "http://$_SERVER[HTTP_HOST]/Piknix/web-info.php?loc=";
+	$targetURL = "http://$_SERVER[HTTP_HOST]/Piknix/chatroom.php?loc=";
 	$imageURL = "http://$_SERVER[HTTP_HOST]/Piknix/location_img/";
 	
 
@@ -33,7 +33,7 @@
     <div class="picnix-container">
 		<?php 
 		while($row = $result->fetch_assoc()): ?>
-			<a href=<?php echo $targetURL.$row["id"]; ?>>
+			<a href=<?php echo $targetURL.$row["id"]."&id=".$id; ?>>
 				<div id="content-search" class="center-text" style="background-image: url(<?php echo $imageURL.$row["image_file"]; ?>)">
 					<div id="content-search-inside">
 						<p><?php echo $row["title"]; ?><p>
