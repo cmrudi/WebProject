@@ -9,17 +9,23 @@
 <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
 <!-- AngularFire -->
 <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+<script>
+	var config = {
+        apiKey: "AIzaSyCz93oYzFZegc-gcXTELEaFWmwFO89cM0g",
+        authDomain: "piknix-chat.firebaseapp.com",
+        databaseURL: "https://piknix-chat.firebaseio.com",
+        storageBucket: "piknix-chat.appspot.com",
+        messagingSenderId: "599616184921"
+    };
+    firebase.initializeApp(config);
+    const dbRef = firebase.database().ref("messages");
+    dbRef.on("child_added", function(snapshot) {
+        console.log(snapshot.key);
+    });
+    
+</script>
  
 <!--Applicazione -->
  
 </head>
-<body ng-app="chatApp" ng-controller="chatController">
- 	<p>Message :<input type="text" ng-model="newmessage.text"></p>
- 	<button ng-click="insert(newmessage)">Add</button>
-    <ul>
-    	<li ng-repeat="message in messages">
-	 		{{message.text}}
-    	</li>
-	</ul>
-</body> 
 </html>

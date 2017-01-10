@@ -1,27 +1,44 @@
 <?php include 'header.php';
-		get_header();
+	get_header();
+
+	$userId = $_GET["id"];
+	$imageURL = "http://$_SERVER[HTTP_HOST]/Piknix/location_img/";
+	$webInfoURL = "http://$_SERVER[HTTP_HOST]/Piknix/web-info.php?loc=";
+
+	$dbservername="localhost";
+	$dbusername="piknix";
+	$dbpassword="piknix";
+	$database="piknix_db";
+
+	$conn = mysqli_connect($dbservername,$dbusername,$dbpassword,$database);
+	
+	if (mysqli_connect_errno()) {
+			exit();
+	}
+
+	$query = "SELECT id,title,image_file_big FROM destination WHERE destination.id IN (SELECT location_id FROM bookmark WHERE user_id = '$userId')";
+	$result = mysqli_query($conn,$query);
+
+
 ?>
 <div class="row">
   <div class="col-sm-7">
-    <iframe width="100%" height="510px" src="http://maps.google.com/maps/ms?ie=UTF8&amp;hl=en&amp;msa=0&amp;msid=110069293083852065946.00047e2506156dd8d127b&amp;ll=27.727526,85.310855&amp;spn=0.021197,0.038581&amp;z=14&amp;iwloc=00047e251edcecb28ba7c&amp;output=embed"></iframe>
+    <div id="map"></div>
+    <div id="capture"></div>
   </div>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtTM7HTfmrIedFAbJYWFLLo0Et7CQxlew&callback=initMap"></script>
   <div class="col-sm-5">
     <div class="picnix-container">
-		<div id="search" class="center-text">Type to Search</div>
-		
+		<div id="search" class="center-text">Bookmarks</div>
+		<div class="row">
 		<?php 
-		for ($i = 0; $i <= 3; $i++) {
-			?>
-			<div class="row">
-				<div id="content-bookmark" class="center-text"> bookmark</div>
-				<div id="content-bookmark" class="center-text"> bookmark</div>
-				<div id="content-bookmark" class="center-text"> bookmark</div>
-			</div>
-			
-			<?php
-		} 
-		
-		?>
+		while($row = $result->fetch_assoc()):	?>
+				<div id="content-bookmark" class="center-text" style="background-image: url(<?php echo $imageURL.$row["image_file_big"]; ?>)">
+					<div id="inner-bookmark"><?php echo $row["title"]; ?></div>
+				</div>
+		<?php endwhile; ?>
+		</div>
     </div>
   </div>
 </div>

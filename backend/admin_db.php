@@ -1,5 +1,7 @@
 <?php 
 
+	$URL = "http://$_SERVER[HTTP_HOST]/Piknix/backend/";
+
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 		//For Thumbnail Image
@@ -95,6 +97,10 @@
 
 			if ($result = mysqli_query($conn,$query)) {
 				echo "success";
+				$query = "SELECT id FROM destination WHERE name = '$name'";
+				$result = mysqli_query($conn,$query);
+				$row = $result->fetch_assoc();
+				header("Location:".$URL."addChatRoom.php?loc=".$row["id"]);
 			}
 			mysqli_free_result($result);
 			mysqli_close($conn);

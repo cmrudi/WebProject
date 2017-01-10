@@ -19,7 +19,7 @@
 			$row = $login_result->fetch_assoc(); 
 			if($row["password"] == $password) {
 				$id = $row["id"];
-				header("Location: /Piknix/home.php?id=1");
+				header("Location: /Piknix/home.php?id=".$id);
 			}
 			else {
 				header("Location: /Piknix/index.php");

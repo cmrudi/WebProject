@@ -70,13 +70,14 @@ input[type="submit"]{
 	 float: right;
 }
 
-#search {	
+#search {
+	border: none;
 	background:color;
 	margin: auto;
 	margin-top:10px;
 	height: 95px;
 	width: 97%;
-	padding-top:35px;
+	text-align: center;
 	background-color: white;
 	color:#F15A25;
 	border-radius:5px;
@@ -112,13 +113,21 @@ input[type="submit"]{
 #content-bookmark {
 	position:relative;
 	float:left;
-	background:color;
 	margin-top:20px;
 	margin-left: 25px;
 	height: 100px;
 	width: 27%;
-	background-color:#F15A25;
 	border-radius:5px;
+}
+
+#inner-bookmark {
+	background-color:black;
+	width: 100%;
+	height: 30px;
+	margin-top: 75px;
+	text-align: center;
+	padding-top: 5px;
+	opacity: 0.8;
 }
 
 #web-info-picture {	
@@ -171,6 +180,27 @@ input[type="submit"]{
 	border-radius:5px;
 	background-color:#F15A25;
 	float:left;
+}
+
+#how-it-works {
+	margin-top: 20px;
+	margin-right: 0.5%;
+	height:90px;
+	width: 49%;
+	border-radius:5px;
+	background-color:#F15A25;
+	float:left;
+}
+
+#about-us {
+	margin-top:20px;
+	margin-left:0.5%;
+	height:90px;
+	width:49%;
+	border-radius:5px;
+	background-color:#F15A25;
+	float:left
+	
 }
 
 #chat-box {
@@ -266,3 +296,5 @@ input[type="submit"]{
     background: transparent;
 	color: black;
 }
+
+
