@@ -14,7 +14,6 @@
 </html>
 <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
 <script type="text/javascript">
-	console.log("testtt");
 	var locationId = document.getElementById("location").value;
 	console.log(locationId);
 	var config = {

@@ -22,7 +22,12 @@
 
 		$query =  "INSERT INTO trip (destination_id,start_date,end_date,quota,gender,description,user_id,created_time) VALUES ('$locationId','$startDate','$endDate','$quota','$gender','$tripDescription','$userId','$createdTime')";
 		if($result = mysqli_query($conn,$query)){
-			header("Location: /Piknix/chatroom.php?id=".$userId."&loc=".$locationId);
+			$query = "SELECT id FROM trip WHERE user_id = '$userId' AND created_time = '$createdTime'";
+			if ($result = mysqli_query($conn,$query)) {
+				$row = $result->fetch_assoc();
+				$tripId = $row["id"];
+				header("Location: /Piknix/backend/addTripRoom.php?trip=".$tripId."&loc=".$locationId."&id=".$userId);
+			}
 		}
 		else {
 			echo "Failed to add trip<br>";

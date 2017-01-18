@@ -21,10 +21,11 @@
 	$query = "UPDATE user_auth SET last_destination_id = '$locationId' WHERE id = '$userId'";
 	$result = mysqli_query($conn,$query);
 
-	$query = "SELECT username FROM user_auth WHERE id = '$userId'";
+	$query = "SELECT username,trip_joined FROM user_auth WHERE id = '$userId'";
 	$result = mysqli_query($conn,$query);
 	$row = $result->fetch_assoc();
 	$username = $row["username"];
+	$tripId = $row["trip_joined"];
 
 	$query = "SELECT * FROM bookmark WHERE user_id='$userId' AND location_id='$locationId'";
 	$result = mysqli_query($conn,$query);
@@ -71,8 +72,14 @@
 		</div>
 		<input id="location" type="hidden" value=<?php echo $locationId; ?>>
 		<div class="chat-room">
+		<?php if ($tripId == 0) { ?>
 			<a class="tab-chat active" href="javascript:void(0)"><div id="chat-button" class="active-tab">Chat Room</div></a>
 			<a class="tab-trip" href="javascript:void(0)"><div  id="trip-button" class="inactive-tab">Trip Room</div></a>
+		<?php } else { ?>
+			<a class="tab-chat active" href="javascript:void(0)"><div id="chat-button-small" class="active-tab">Chat Room</div></a>
+			<a class="tab-trip-join active" href="javascript:void(0)"><div id="trip-join-button-small" class="inactive-tab">Trip Chat</div></a>
+			<a class="tab-trip" href="javascript:void(0)"><div  id="trip-button-small" class="inactive-tab">Trip Room</div></a>
+		<?php } ?>
 			<div id="chat-multi-container" class="show-chat" ng-app="chatApp" ng-controller="chatController">
 				<div class="show-chat" id="chat-container">
 					<ul>
@@ -98,6 +105,8 @@
 					</a>
 				<?php endwhile; ?>
 			</div>
+			<div class="show-trip-join" id="chat-multi-container">
+			</div>
 		</div>
 	</div>
   </div>
@@ -107,39 +116,81 @@
 
 </body>
 </html>
+<?php if ($tripId == 0) { ?>
 <script>
-	console.log($('#location').val());
-
-	console.log(document.getElementById('location').value);
 	$('.tab-chat').click(function(e){
 	    //make all tabs inactive
-	    console.log("cekkk");
-	    $('.chat-room a').removeClass('active');
 
 	    $('#chat-button').removeClass('inactive-tab');
 	    $('#chat-button').addClass('active-tab');
 	    $('#trip-button').addClass('inactive-tab');
 	    $('#trip-button').removeClass('active-tab');
-	    //then make the clicked tab active
-	    $(this).addClass('active');    
+	    //then make the clicked tab active    
 	    $('.show-trip').hide();
 	    $('.show-chat').show();
 	});
 
 	$('.tab-trip').click(function(e){
 	    //make all tabs inactive
-	    $('.chat-room a').removeClass('active');
 	    //then make the clicked tab active
 	    $('#trip-button').removeClass('inactive-tab');
 	    $('#trip-button').addClass('active-tab');
 	    $('#chat-button').addClass('inactive-tab');
 	    $('#chat-button').removeClass('active-tab');
-
-	    $(this).addClass('active');    
+    
 	    $('.show-trip').show();
 	    $('.show-chat').hide();
 	});
 </script>
+<?php } else { ?>
+<script>
+	$('.tab-chat').click(function(e){
+	    //make all tabs inactive
+
+	    $('#chat-button-small').removeClass('inactive-tab');
+	    $('#chat-button-small').addClass('active-tab');
+	    $('#trip-button-small').addClass('inactive-tab');
+	    $('#trip-button-small').removeClass('active-tab');
+	    $('#trip-join-button-small').addClass('inactive-tab');
+	    $('#trip-join-button-small').removeClass('active-tab');
+
+	    //then make the clicked tab active    
+	    $('.show-trip').hide();
+	    $('.show-trip-join').hide();
+	    $('.show-chat').show();
+	});
+
+	$('.tab-trip').click(function(e){
+	    //make all tabs inactive
+	    //then make the clicked tab active
+	    $('#trip-button-small').removeClass('inactive-tab');
+	    $('#trip-button-small').addClass('active-tab');
+	    $('#chat-button-small').addClass('inactive-tab');
+	    $('#chat-button-small').removeClass('active-tab');
+	    $('#trip-join-button-small').addClass('inactive-tab');
+	    $('#trip-join-button-small').removeClass('active-tab');
+    
+	    $('.show-trip').show();
+	    $('.show-trip-join').hide();
+	    $('.show-chat').hide();
+	});
+
+	$('.tab-trip-join').click(function(e){
+	    //make all tabs inactive
+	    //then make the clicked tab active
+	    $('#trip-button-small').removeClass('active-tab');
+	    $('#trip-button-small').addClass('inactive-tab');
+	    $('#chat-button-small').addClass('inactive-tab');
+	    $('#chat-button-small').removeClass('active-tab');
+	    $('#trip-join-button-small').addClass('active-tab');
+	    $('#trip-join-button-small').removeClass('inactive-tab');
+   
+	    $('.show-trip').hide();
+	    $('.show-trip-join').show();
+	    $('.show-chat').hide();
+	});
+</script>
+<?php } ?>
 
 
 

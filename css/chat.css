@@ -30,6 +30,37 @@
 	color: #848181;
 }
 
+#chat-button-small {
+	margin-top: 25px;
+	padding-top: 5px;
+	width: 33.33%;
+	float: left;
+	height: 40px;
+	color: #848181;
+	text-align: center;
+}
+
+#trip-button-small {
+	padding-top: 5px;
+	margin-top:25px;
+	width: 33.33%;
+	float: left;
+	height: 40px;
+	text-align: center;
+	color: #848181;
+}
+
+#trip-join-button-small {
+	padding-top: 5px;
+	margin-top:25px;
+	width: 33.33%;
+	float: left;
+	height: 40px;
+	text-align: center;
+	color: #848181;
+}
+
+
 #chat-container {
 	position: relative;
 	width: 100%;

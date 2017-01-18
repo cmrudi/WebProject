@@ -43,7 +43,6 @@
 
 ?>
 
-<script type="text/javascript" src="js/chat.js"></script>
 <script type="text/javascript" src="js/ajax.js"></script>
 
 <div class="row">
