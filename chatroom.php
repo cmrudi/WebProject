@@ -5,7 +5,7 @@
 	$userId = $_GET["id"];
 	$imageURL = "http://$_SERVER[HTTP_HOST]/Piknix/location_img/";
 	$webInfoURL = "http://$_SERVER[HTTP_HOST]/Piknix/web-info.php?loc=";
-	$targetUri = "http://$_SERVER[HTTP_HOST]/Piknix/backend/enterToTrip.php";
+	$targetUri = "http://$_SERVER[HTTP_HOST]/Piknix/join-trip.php";
 
 	$dbservername="localhost";
 	$dbusername="piknix";
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 		<input id="location" type="hidden" value=<?php echo $locationId; ?>>
-		<div class="chat-room">
+		<div class="chat-room" ng-app="chatApp">
 		<?php if ($tripId == 0) { ?>
 			<a class="tab-chat active" href="javascript:void(0)"><div id="chat-button" class="active-tab">Chat Room</div></a>
 			<a class="tab-trip" href="javascript:void(0)"><div  id="trip-button" class="inactive-tab">Trip Room</div></a>
@@ -80,7 +80,7 @@
 			<a class="tab-trip-join active" href="javascript:void(0)"><div id="trip-join-button-small" class="inactive-tab">Trip Chat</div></a>
 			<a class="tab-trip" href="javascript:void(0)"><div  id="trip-button-small" class="inactive-tab">Trip Room</div></a>
 		<?php } ?>
-			<div id="chat-multi-container" class="show-chat" ng-app="chatApp" ng-controller="chatController">
+			<div id="chat-multi-container" class="show-chat" ng-controller="chatController">
 				<div class="show-chat" id="chat-container">
 					<ul>
     					<div ng-repeat="message in messages">
@@ -105,8 +105,24 @@
 					</a>
 				<?php endwhile; ?>
 			</div>
-			<div class="show-trip-join" id="chat-multi-container">
+		<?php if ($tripId != 0) { ?>
+			<input id="tripId" type="hidden" value=<?php echo $tripId; ?>>
+			<div class="show-trip-join" id="chat-multi-container" ng-controller="tripChatController">
+				<div class="show-trip-join" id="chat-container">
+					<ul>
+    					<div ng-repeat="message in messages">
+    						<div class="text-message">
+    							{{ message.name }} <date>{{ message.time | date:'HH:mm'}}</date><br>
+	 							{{message.text}}
+	 						</div>
+    					</div>
+					</ul>
+				</div>
+				<input id="username" type="hidden" ng-model="newmessage.name" value=<?php echo $username; ?>>
+				<input class="show-trip-join" id="chat-input-text" type="text" ng-model="newmessage.text">
+				<button class="show-trip-join" id = "chat-input-button" ng-click="insert(newmessage)">Add</button>
 			</div>
+		<?php } ?>
 		</div>
 	</div>
   </div>

@@ -106,6 +106,10 @@
 	display: none;
 }
 
+.show-trip-join {
+	display: none;
+}
+
 #add-trip-box {
 	float:left;
 	background-color:#F15A25;
