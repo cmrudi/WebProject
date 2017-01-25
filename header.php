@@ -32,9 +32,9 @@ function get_header() {
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 		  <ul class="nav navbar-nav navbar-right">
-			<li><a href=<?php if ($userId != null) {echo "search.php?id=".$userId; } else {echo "search.php"; } ?>><span class="glyphicon glyphicon-search"></span></a></li>
+			<li><a onclick="showSearchMenu()"><span class="glyphicon glyphicon-search"></span></a></li>
 			<li><a href=<?php if ($userId != null) {echo "active-chat.php?id=".$userId; } else {echo "index.php"; } ?>><span class="glyphicon glyphicon-comment"></span></a></li>
-			<li><a href=<?php if ($userId != null) {echo "user-page.php?id=".$userId; } else {echo "index.php"; } ?>><span class="glyphicon glyphicon-user"></span></a></li>
+			<li><a onclick="showUserMenu('username')"><span class="glyphicon glyphicon-user"></span></a></li>
 			<li><a href=<?php if ($userId != null) {echo "general-menu.php?id=".$userId; } else {echo "general-menu.php"; } ?>><span class="glyphicon glyphicon-align-justify"></span></a></li> 
 		  </ul>
 		</div>

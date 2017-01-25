@@ -110,6 +110,14 @@
 	display: none;
 }
 
+.unshow-picture {
+	display: none;
+}
+.organize-trip {
+	display: none;
+	margin-top: 20px;
+}
+
 #add-trip-box {
 	float:left;
 	background-color:#F15A25;
