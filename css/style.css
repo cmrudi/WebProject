@@ -4,6 +4,7 @@
 
 body {
 	background-color:#f2f2f2;
+	font-family: 'Fira Sans', sans-serif;
 }
 
 .orange-text {
@@ -248,8 +249,10 @@ input[type="submit"]{
 
 
 #how-it-works {
-	margin-top: 20px;
+	position: relative;
+	margin-top: 10px;
 	margin-right: 0.5%;
+	padding-top: 10px;
 	height:90px;
 	width: 49%;
 	border-radius:5px;
@@ -258,14 +261,15 @@ input[type="submit"]{
 }
 
 #about-us {
-	margin-top:20px;
+	position: relative;
+	margin-top:10px;
 	margin-left:0.5%;
+	padding-top: 10px;
 	height:90px;
 	width:49%;
 	border-radius:5px;
 	background-color:#F15A25;
 	float:left
-	
 }
 
 #chat-box {
@@ -438,6 +442,11 @@ input[type="submit"]{
 	width: 100%;
 }
 
+.glyp-about-us {
+	margin-left: 8px !important;
+	font-weight: 900;
+}
+
 .glyp-inside-circle {
 	position:relative;
 	margin-left: auto;
@@ -452,7 +461,7 @@ input[type="submit"]{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 60px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -462,13 +471,17 @@ input[type="submit"]{
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+.wide-modal {
+	width: 80% !important;
+}
+
 .modal-content {
     position: relative;
     background-color: #fefefe;
     margin: auto;
     padding: 0;
-    border: 1px solid #888;
     width: 50%;
+    border-radius: 12px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -480,6 +493,9 @@ input[type="submit"]{
     padding: 2px 16px;
     background-color: #F15A25;
     color: white;
+    border:none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #blah {
@@ -489,6 +505,121 @@ input[type="submit"]{
 }
 
 .modal-footer {
-	background-color: #F15A25;
+	background-color: white;
     height: 20px;
+    border: none;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
 }
+
+.left-modal {
+	position: relative;
+	float: left;
+	width: 50%;
+	height: auto;
+	background-color: white;
+}
+
+.right-modal {
+	position: relative;
+	float: left;
+	width: 50%;
+	height: 100px;
+	background-color: auto;
+}
+
+#about-us-logo {
+	width: 60%;
+	margin-top:10px;
+	margin-bottom: 70px;
+}
+
+.about-us-text-box {
+	width: 100%;
+	margin-right: 20%;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid #b3b3b3;
+	padding-left: 5px;
+}
+
+.about-us-text {
+	color: #b3b3b3;
+}
+
+#contact-us-form {
+	padding-right: 15%;
+}
+
+#hubungi-kami-text {
+	float: right;
+	color: #b3b3b3;
+}
+
+#submit-about-us-form {
+	border: none;
+	height: 30px;
+	width: 20%;
+	color: white;
+	border-radius: 5px;
+	background-color: #999999;
+}
+
+#submit-about-us-form:hover {
+	background-color: #457ff7;
+}
+
+#contact-us-left {
+	padding-left: 5%;
+}
+
+.about-us-social-logo {
+	width: 10%;
+}
+
+#about-us-ig {
+	margin-right: : 5%;
+}
+
+#about-us-fb {
+	margin-right: 5%;
+}
+
+#about-us-tw {
+	margin-right: 5%;		
+}
+
+#about-us-ig:hover {
+	content:url("/Piknix/img/hover-ig.png");
+}
+
+#about-us-fb:hover {
+	content:url("/Piknix/img/hover-fb.png");
+}
+
+#about-us-tw:hover {
+	content:url("/Piknix/img/hover-tw.png");
+}
+
+#exit-about-us {
+	margin-right: 5px;
+	margin-top: 10px;
+}
+
+#exit-about-us:hover {
+	color: white;
+}
+
+.about-us-hr {
+	border: none;
+    height: 1px;
+    background-color: #b3b3b3; /* Modern Browsers */
+}
+
+#about-us-modal-header {
+	padding-left:5%;
+}
+
+
+
+
