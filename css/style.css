@@ -11,6 +11,10 @@ body {
 	color:#F15A25;
 }
 
+.bold {
+	font-weight: 900;
+}
+
 .orange-background {
 	background-color:#F15A25;
 }
@@ -490,6 +494,7 @@ input[type="submit"]{
 }
 
 .modal-header {
+	padding-left: 5%;
     padding: 2px 16px;
     background-color: #F15A25;
     color: white;
@@ -573,6 +578,17 @@ input[type="submit"]{
 	padding-left: 5%;
 }
 
+#how-it-works-left {
+	padding-left: 5%;
+	color: #999999;
+}
+
+#how-it-works-right {
+	overflow-y: scroll;
+	height: 450px;
+	padding-right: 5%;
+}
+
 .about-us-social-logo {
 	width: 10%;
 }
@@ -610,6 +626,15 @@ input[type="submit"]{
 	color: white;
 }
 
+#exit-how-it-works {
+	margin-right: 5px;
+	margin-top: 10px;
+}
+
+#exit-how-it-works:hover {
+	color: white;
+}
+
 .about-us-hr {
 	border: none;
     height: 1px;
@@ -620,6 +645,25 @@ input[type="submit"]{
 	padding-left:5%;
 }
 
+#how-it-works-modal-header {
+	padding-left:5%;
+}
 
+.faq-button {
+	width: 100%;
+	margin-top: 5px;
+	background-color: #cccccc;
+	border: none;
+}
 
+.faq-answer {
+	margin-top: 15px;
+	margin-bottom: 20px;
+	color:#F15A25;
+}
+
+.how-it-works-title {
+	color:black;
+	margin-top: 20px;
+}
 

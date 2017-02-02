@@ -83,76 +83,76 @@
   		    	<div id="about-us"><div class="circle"></div><p class="center-text">about us</p></div>
   		    	<div id="how-it-works-modal" class="modal">
 					<div class="wide-modal modal-content">
-						<div class="modal-header">
+						<div id="how-it-works-modal-header" class="modal-header">
 							<span id="exit-how-it-works" class="close">&times;</span>
-							<h4>How it Works?</h4>
+							<h3>How it Works?</h3>
 						</div>
 						<div class="modal-body row">
-							<div class="col-md-6">
-								<h3>Apa Itu Piknix?</h3>
-								<p>Tempat kamu mendapatkan pilihan lokasi wisata terbaik.<br>Diskusikan lokasi favoritmu bersama semua orang.</p>
+							<div id="how-it-works-left" class="col-md-6">
+								<h4 class="orange-text">Apa Itu Piknix?</h4>
+								<p>Tempat kamu mendapatkan pilihan lokasi wisata terbaik. Diskusikan lokasi favoritmu bersama semua orang.</p>
 								<br>
-								<h3>Cara Kerja</h3>
-								<h4>Tentukan Destinasi</h4>
-								<p>Pilih destinasi yang kamu inginkan pada Map atau lakukan pencarian di kolom Search.<br> Jika destinasi yang kamu cari belum ada, mungkin memang belum saatnya kamu kesana.</p>
+								<h4 class="orange-text">Cara Kerja</h4>
+								<h5 class="how-it-works-title">Tentukan Destinasi</h5>
+								<p>Pilih destinasi yang kamu inginkan pada Map atau lakukan pencarian di kolom Search. Jika destinasi yang kamu cari belum ada, mungkin memang belum saatnya kamu kesana.</p>
 	 
-								<h4>Dapatkan informasi</h4>
-								<p>Semua informasi yang kamu butuhkan mengenai tempat yang kamu pilih bisa kamu dapatkan.<br> Diskusikan serta berbagi informasi melalui Obrolan bersama pengguna lain.</p>
+								<h5 class="how-it-works-title">Dapatkan informasi</h5>
+								<p>Semua informasi yang kamu butuhkan mengenai tempat yang kamu pilih bisa kamu dapatkan. Diskusikan serta berbagi informasi melalui Obrolan bersama pengguna lain.</p>
 	 
-								<h4>Trip?</h4>
+								<h5 class="how-it-works-title">Trip?</h5>
 								<p>Setelah semua kamu dapatkan, ini saatnya buat merencanakan dalam sebuah Trip.</p>
 							</div>
-							<div class="col-md-6">
-								<h3>Frequently Asked Questions</h3>
+							<div id="how-it-works-right" class="col-md-6">
+								<h4 class="orange-text">Frequently Asked Questions</h4>
 								<br>
-								<h4>USER ID</h4>
-								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo1">Bagaimana cara membuat userID?</button>
-							  <div id="demo1" class="collapse">
+								<h5>USER ID</h5>
+								<button type="button" class="btn btn-info faq-button" data-toggle="collapse" data-target="#demo1">Bagaimana cara membuat userID?</button><br>
+							  <div id="demo1" class="collapse faq-answer">
 							    Tentukan username yang kamu ingin gunakan<br>
 								Masukkan alamat email<br>
 								Username dan PIN akan dikirim ke alamat emailmu<br>
 							  </div>
-								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2">Apakah userID bisa dirubah?</button>
-							  <div id="demo2" class="collapse">
+								<button type="button" class="btn btn-info faq-button" data-toggle="collapse" data-target="#demo2">Apakah userID bisa dirubah?</button><br>
+							  <div id="demo2" class="collapse faq-answer">
 							    UserID tidak dapat dirubah
 							  </div>
-								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo3">Apakah PIN bisa dirubah?</button>
-							  <div id="demo3" class="collapse">
+								<button type="button" class="btn btn-info faq-button" data-toggle="collapse" data-target="#demo3">Apakah PIN bisa dirubah?</button><br>
+							  <div id="demo3" class="collapse faq-answer">
 							    PIN diberikan unik setiap user dan tidak bisa dirubah
 							  </div>
 
-								<h4>MAP</h4>
-								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo4">Apakah Map itu?</button>
-							  <div id="demo4" class="collapse">
+								<h5>MAP</h5>
+								<button type="button" class="btn btn-info faq-button" data-toggle="collapse" data-target="#demo4">Apakah Map itu?</button><br>
+							  <div id="demo4" class="collapse faq-answer">
 							    Menampilkan destinasi pariwisata pada suatu daerah yang dipilih
 							  </div>
-								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo5">
-								Bagaimana cara menambahkan destinasi baru?</button>
-							  <div id="demo5" class="collapse">
+								<button type="button" class="btn btn-info faq-button" data-toggle="collapse" data-target="#demo5">
+								Bagaimana cara menambahkan destinasi baru?</button><br>
+							  <div id="demo5" class="collapse faq-answer">
 							    Pengguna tidak dapat menambahkan destinasi.
 							  </div>
 
-								<h4>OBROLAN</h4>
-								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo6">Apakah Obrolan itu?</button>
-							  <div id="demo6" class="collapse">
+								<h5>OBROLAN</h5>
+								<button type="button" class="btn btn-info faq-button" data-toggle="collapse" data-target="#demo6">Apakah Obrolan itu?</button><br>
+							  <div id="demo6" class="collapse faq-answer">
 							    Fitur untuk berkomunikasi dengan pengguna lain
 							  </div>
-								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo7">Bagaimana cara mengirim foto dan dokumen lain pada Obrolan?</button>
-							  <div id="demo7" class="collapse">
+								<button type="button" class="btn btn-info faq-button" data-toggle="collapse" data-target="#demo7">Bagaimana cara mengirim foto dan dokumen lain pada Obrolan?</button><br>
+							  <div id="demo7" class="collapse faq-answer">
 							    Obrolan pada piknix tidak mendukung untuk dilampirkan file baik berupa foto dan dokumen
 							  </div>
 
-								<h4>TRIP</h4>
-								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo8">Apakah Trip itu?</button>
-							  <div id="demo8" class="collapse">
+								<h5>TRIP</h5>
+								<button type="button" class="btn btn-info faq-button" data-toggle="collapse" data-target="#demo8">Apakah Trip itu?</button><br>
+							  <div id="demo8" class="collapse faq-answer">
 							    Fitur untuk mempermudah perencanaan perjalanan yang dilakukan pengguna
 							  </div>
-								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo9">Apakah TripID itu?</button>
-							  <div id="demo9" class="collapse">
+								<button type="button" class="btn btn-info faq-button" data-toggle="collapse" data-target="#demo9">Apakah TripID itu?</button><br>
+							  <div id="demo9" class="collapse faq-answer">
 							    TripID adalah identitas setiap trip yang dibuat. Dapat digunakan untuk mencari sebuah Trip secara cepat di kolom Search
 							  </div>
-								<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo10">Bagaimana cara membuat Trip?</button>
-							  <div id="demo10" class="collapse">
+								<button type="button" class="btn btn-info faq-button" data-toggle="collapse" data-target="#demo10">Bagaimana cara membuat Trip?</button><br>
+							  <div id="demo10" class="collapse faq-answer">
 							    Setiap pengguna dapat membuat atau bergabung pada satu Trip. Pengguna dapat bergabung pada Trip lain setelah meninggalkan Trip yang lama atau Trip sebelumnya telah selesai.
 							  </div>
 							</div>
