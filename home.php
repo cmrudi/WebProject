@@ -190,7 +190,7 @@
 									<input class="about-us-text-box" type="text" name="perihal"><br><br>
 									<p class="about-us-text">Pesan</p>
 									<input class="about-us-text-box" type="text" name="pesan"><br><br>
-									<input id="submit-about-us-form" type="submit" name="submit" value="kirim">
+									<input id="submit-button" type="submit" name="submit" value="kirim">
 								</form>
 							</div>
 						</div>
