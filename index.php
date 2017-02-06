@@ -1,6 +1,5 @@
 <?php include 'landing-header.php';
-	  include 'login.php';
-	  include 'signup.php';
+	  include 'landing-form.php';
 		get_landing_header();
 
 	function test_input($data) {
@@ -12,7 +11,7 @@
 
 		$targetLogin = "http://$_SERVER[HTTP_HOST]/Piknix/backend/login_db.php";
 		$targetSignup = "http://$_SERVER[HTTP_HOST]/Piknix/backend/signup_db.php";
-		$targetURL = "http://$_SERVER[HTTP_HOST]/Piknix/chatroom.php?loc=";
+		$targetURL = "http://$_SERVER[HTTP_HOST]/Piknix/landing-chatroom.php?loc=";
 		$imageURL = "http://$_SERVER[HTTP_HOST]/Piknix/location_img/";	
 
 		$dbservername="localhost";
@@ -45,36 +44,9 @@
   <div class="col-sm-5">
     <div class="picnix-container">
       	<div id="signup-login-form">
-			<form class="signup-form" name="signup-form" enctype="multipart/form-data" onsubmit="" method = "POST" action =<?php echo '"'.$targetSignup.'"'; ?>
-				<br>
-				<h5 class="orange-text">username</h5>
-				<input type = "text" name = "username">
-				<br><br>
-				<h5 class="orange-text">email address</h5>
-				<input type = "text" name = "email">
-				<br><br>
-				<h5 class="orange-text">PIN code</h5>
-				<input type = "text" name = "password">
-				<br><br>
-				<input class="submit-button" type="submit" value="Submit">
-				<br>
-			</form>
-			<form class="login-form" name="login-form" enctype="multipart/form-data" onsubmit="" method = "POST" action = <?php echo '"'.$targetLogin.'"'; ?> >
-				<br>
-				<h5 class="orange-text">username</h5>
-				<input type = "text" name = "username">
-				<br><br>
-				<h5 class="orange-text">PIN code</h5>
-				<input type = "text" name = "password">
-				<br><br>
-				<input class="submit-button" type="submit" value="Submit">
-				<br>
-			</form>
-      </div>
+			<?php get_landing_form(); ?>
+      	</div>
      		<div class="main-content">
-     		<form class="search-form" name="search" action="" method="post">
-				<input type="text" id="search" name="searchText" class="center-text" placeholder="Type to Search">
-			</form>
 		      <?php 
 				while($row = $result->fetch_assoc()): ?>
 					<a href=<?php echo $targetURL.$row["id"]."&id=".$id; ?>>
@@ -94,33 +66,3 @@
 </body>
 </html>
 
-<script type="text/javascript">
-	$('.tab-login').click(function(e){
-	    //make all tabs inact
-	    $('.login-form').show();
-	    $('.signup-form').hide();
-	    $('.search-form').hide();
-	    $('.main-content').hide();
-
-
-	});
-	$('.tab-signup').click(function(e){
-	    //make all tabs inact
-	    $('.login-form').hide();
-	    $('.signup-form').show();
-	    $('.search-form').hide();
-	    $('.main-content').hide();
-
-	});
-
-	$('.tab-search').click(function(e){
-	    //make all tabs inact
-	    $('.login-form').hide();
-	    $('.signup-form').hide();
-	    $('.search-form').show();
-	    $('.main-content').show();
-
-	});
-
-
-</script>
