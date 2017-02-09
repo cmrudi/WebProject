@@ -1,5 +1,15 @@
-<?php include 'header.php';
-		get_header();
+<?php
+    $id = $_GET["id"];
+
+    if ($id == 0) {
+      include 'landing-header.php';
+      include 'landing-form.php';
+      get_landing_header();
+    }
+    else {
+      include 'header.php';
+		  get_header();
+    }
     $locationId = $_GET["loc"];
     $imageURL = "http://$_SERVER[HTTP_HOST]/Piknix/location_img/";
 
@@ -28,15 +38,32 @@
   </div>
   <div class="col-sm-5">
     <div class="picnix-container">
-		<div id="web-info-picture" class="center-text" style="background-image: url(<?php echo $imageURL.$row["image_file_big"]; ?>)">
-        <span id="left-arrow" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span id="right-arrow" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <div id="web-info-text-picture">
-            <p><?php echo $row["title"]; ?><p>
-            <p class="small-text"><?php echo $row["location"]; ?><p>
-        </div>  
-    </div>
-		<div id="web-info-description" class="center-text"><?php echo $row["description"]; ?></div>
+    <?php if (id ==0 )  {?>
+      <div id="signup-login-form">
+        <?php get_landing_form(); ?>
+      </div>
+      <div class="main-content">
+    		<div id="web-info-picture" class="center-text" style="background-image: url(<?php echo $imageURL.$row["image_file_big"]; ?>)">
+            <button onclick="prevWebInfo(<?php echo $locationId; ?>)"><span id="left-arrow" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+            <button onclick="nextWebInfo(<?php echo $locationId; ?>)"><span id="right-arrow" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+            <div id="web-info-text-picture">
+                <p id="web-info-title"><?php echo $row["title"]; ?><p>
+                <p id="web-info-location" class="small-text"><?php echo $row["location"]; ?><p>
+            </div>  
+        </div>
+        <div id="web-info-description" class="center-text"><?php echo $row["description"]; ?></div>
+      </div>
+    <?php } else { ?>
+      <div id="web-info-picture" class="center-text" style="background-image: url(<?php echo $imageURL.$row["image_file_big"]; ?>)">
+            <button onclick="prevWebInfo(<?php echo $locationId; ?>)"><span id="left-arrow" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+            <button onclick="nextWebInfo(<?php echo $locationId; ?>)"><span id="right-arrow" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+            <div id="web-info-text-picture">
+                <p id="web-info-title"><?php echo $row["title"]; ?><p>
+                <p id="web-info-location" class="small-text"><?php echo $row["location"]; ?><p>
+            </div>  
+        </div>
+        <div id="web-info-description" class="center-text"><?php echo $row["description"]; ?></div>
+    <?php } ?>
     </div>
   </div>
 </div>  

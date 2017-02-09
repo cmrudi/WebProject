@@ -18,6 +18,7 @@ function get_landing_header() {
 	  <link rel="stylesheet" href="css/chat.css">
 	  <script src="js/google-maps.js"></script>
 	  <script src="js/style.js"></script>
+	  <script src="js/ajax.js"></script>
 	</head>
 	<body>
 

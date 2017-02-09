@@ -9,6 +9,7 @@
 	  	return $data;
 	}
 
+		$id = 0;
 		$targetLogin = "http://$_SERVER[HTTP_HOST]/Piknix/backend/login_db.php";
 		$targetSignup = "http://$_SERVER[HTTP_HOST]/Piknix/backend/signup_db.php";
 		$targetURL = "http://$_SERVER[HTTP_HOST]/Piknix/landing-chatroom.php?loc=";
@@ -46,23 +47,22 @@
       	<div id="signup-login-form">
 			<?php get_landing_form(); ?>
       	</div>
-     		<div class="main-content">
-		      <?php 
-				while($row = $result->fetch_assoc()): ?>
-					<a href=<?php echo $targetURL.$row["id"]."&id=".$id; ?>>
-						<div id="content-search" class="center-text" style="background-image: url(<?php echo $imageURL.$row["image_file"]; ?>)">
-							<div id="content-search-inside">
-								<p><?php echo $row["title"]; ?><p>
-								<p class="small-text"><?php echo $row["location"]; ?><p>
-							</div>
+ 		<div class="main-content">
+	      <?php 
+			while($row = $result->fetch_assoc()): ?>
+				<a href=<?php echo $targetURL.$row["id"]."&id=".$id; ?>>
+					<div id="content-search" class="center-text" style="background-image: url(<?php echo $imageURL.$row["image_file"]; ?>)">
+						<div id="content-search-inside">
+							<p><?php echo $row["title"]; ?><p>
+							<p class="small-text"><?php echo $row["location"]; ?><p>
 						</div>
-					</a>
-				<?php endwhile; ?>
-			</div>
+					</div>
+				</a>
+			<?php endwhile; ?>
+		</div>
     </div>
   </div>
 </div>
 
 </body>
 </html>
-

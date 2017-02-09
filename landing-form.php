@@ -59,6 +59,7 @@ function get_landing_form() {
 	    $('.signup-form').hide();
 	    $('.search-form').show();
 	    $('.main-content').show();
+	    $('.main-content').height(465);
 
 	});
 

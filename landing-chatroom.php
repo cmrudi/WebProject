@@ -2,6 +2,7 @@
 		include 'landing-form.php';
 	get_landing_header();
 
+	$id = 0;
 	$locationId = $_GET["loc"];
 	$imageURL = "http://$_SERVER[HTTP_HOST]/Piknix/location_img/";
 	$webInfoURL = "http://$_SERVER[HTTP_HOST]/Piknix/web-info.php?loc=";
@@ -36,22 +37,24 @@
     	<div id="signup-login-form">
 			<?php get_landing_form(); ?>
       	</div>
-		<div id="content-search2" class="center-text show-picture" style="background-image: url(<?php echo $imageURL.$row["image_file"]; ?>)">
-			<div id="content-search-inside">
-				<p><?php echo $row["title"]; ?><p>
-				<p class="small-text"><?php echo $row["location"]; ?><p>
-			</div>
-			<div id="over-image-div">
-				<button class="over-image-button" onclick=<?php echo "window.location.href='".$webInfoURL.$locationId."&id=".$id."'"; ?>><span class="glyphicon glyphicon-info-sign"></span></button>
-			</div>
-		</div>
-		<div class="chat-room login-to-view-chat">
-			<div id="chat-multi-container">
-				<div id="chat-container" class="normal-padding">
-					<div class="text-message">Please login to view chat</div>
+      	<div class="main-content">
+			<div id="content-search2" class="center-text show-picture" style="background-image: url(<?php echo $imageURL.$row["image_file"]; ?>)">
+				<div id="content-search-inside">
+					<p><?php echo $row["title"]; ?><p>
+					<p class="small-text"><?php echo $row["location"]; ?><p>
 				</div>
-				<input class="show-chat" id="chat-input-text" type="text" ng-model="newmessage.text">
-				<button class="show-chat" id = "chat-input-button" ng-click="insert(newmessage)"><span class="glyphicon glyphicon-chevron-right"></span></button>
+				<div id="over-image-div">
+					<button class="over-image-button" onclick=<?php echo "window.location.href='".$webInfoURL.$locationId."&id=".$id."'"; ?>><span class="glyphicon glyphicon-info-sign"></span></button>
+				</div>
+			</div>
+			<div class="chat-room login-to-view-chat">
+				<div id="chat-multi-container">
+					<div id="chat-container" class="normal-padding">
+						<div class="text-message">Please login to view chat</div>
+					</div>
+					<input class="show-chat" id="chat-input-text" type="text" ng-model="newmessage.text">
+					<button class="show-chat" id = "chat-input-button" ng-click="insert(newmessage)"><span class="glyphicon glyphicon-chevron-right"></span></button>
+				</div>
 			</div>
 		</div>
 	</div>
