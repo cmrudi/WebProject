@@ -2,12 +2,6 @@
 	$locationId = $_GET["loc"];
 	$next = $_GET["next"];
 
-	if ($next == 1) {
-		$locationId++;
-	}
-	else {
-		$locationId--;
-	}
 
 	$dbservername="localhost";
     $dbusername="piknix";
@@ -20,11 +14,24 @@
       exit();
     }
 
+    $query = "select min(id) as min,max(id) as max from destination";
+    $result = mysqli_query($conn,$query);
+    $row = $result->fetch_assoc();
+    $min = $row["min"];
+    $max = $row["max"];
+
+    if (($next == 1)&&($locationId < $max)) {
+		$locationId++;
+	}
+	else if (($next ==0)&&($locationId > $min)) {
+		$locationId--;
+	}
+
     $query = "SELECT title, location, image_file_big, description FROM destination WHERE id = '$locationId'";
     $result = mysqli_query($conn,$query);
     $row = $result->fetch_assoc();
 
-   	$response = $row["title"]."#".$row["location"]."#".$row["image_file_big"]."#".$row["description"];
+   	$response = $row["title"]."#".$row["location"]."#".$row["image_file_big"]."#".$row["description"]."#".$locationId;
    	echo $response;
 
 ?>

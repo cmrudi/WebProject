@@ -12,6 +12,7 @@
     }
     $locationId = $_GET["loc"];
     $imageURL = "http://$_SERVER[HTTP_HOST]/Piknix/location_img/";
+    $backURL = "http://$_SERVER[HTTP_HOST]/Piknix/landing-chatroom.php?id=0&loc=";
 
     $dbservername="localhost";
     $dbusername="piknix";
@@ -44,8 +45,17 @@
       </div>
       <div class="main-content">
     		<div id="web-info-picture" class="center-text" style="background-image: url(<?php echo $imageURL.$row["image_file_big"]; ?>)">
-            <button onclick="prevWebInfo(<?php echo $locationId; ?>)"><span id="left-arrow" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
-            <button onclick="nextWebInfo(<?php echo $locationId; ?>)"><span id="right-arrow" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+            <div class="slide-button-container">
+              <a id="back-url" href=<?php echo $backURL.$locationId;  ?>>
+                <div class="close-circle">
+                  <i class="material-icons md-10 close-icon">close</i>
+                </div>
+              </a>
+            </div>
+            <div class="slide-button-container" id="navigation-slide-button">
+              <button id="prevClick" class="left-arrow" onclick="prevWebInfo(<?php echo $locationId; ?>)"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+              <button id="nextClick" class="right-arrow" onclick="nextWebInfo(<?php echo $locationId; ?>)"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+            </div>  
             <div id="web-info-text-picture">
                 <p id="web-info-title"><?php echo $row["title"]; ?><p>
                 <p id="web-info-location" class="small-text"><?php echo $row["location"]; ?><p>
@@ -55,14 +65,23 @@
       </div>
     <?php } else { ?>
       <div id="web-info-picture" class="center-text" style="background-image: url(<?php echo $imageURL.$row["image_file_big"]; ?>)">
-            <button onclick="prevWebInfo(<?php echo $locationId; ?>)"><span id="left-arrow" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
-            <button onclick="nextWebInfo(<?php echo $locationId; ?>)"><span id="right-arrow" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+            <div class="slide-button-container">
+              <a id="back-url" href=<?php echo $backURL.$locationId;  ?>>
+                <div class="close-circle">
+                  <i class="material-icons md-10 close-icon">close</i>
+                </div>
+              </a>
+            </div>
+            <div class="slide-button-container" id="navigation-slide-button">
+              <button id="prevClick" class="left-arrow" onclick="prevWebInfo(<?php echo $locationId; ?>)"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+              <button id="nextClick" class="right-arrow" onclick="nextWebInfo(<?php echo $locationId; ?>)"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+            </div>  
             <div id="web-info-text-picture">
                 <p id="web-info-title"><?php echo $row["title"]; ?><p>
                 <p id="web-info-location" class="small-text"><?php echo $row["location"]; ?><p>
             </div>  
         </div>
-        <div id="web-info-description" class="center-text"><?php echo $row["description"]; ?></div>
+      <div id="web-info-description" class="center-text"><?php echo $row["description"]; ?></div>
     <?php } ?>
     </div>
   </div>

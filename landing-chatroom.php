@@ -6,6 +6,7 @@
 	$locationId = $_GET["loc"];
 	$imageURL = "http://$_SERVER[HTTP_HOST]/Piknix/location_img/";
 	$webInfoURL = "http://$_SERVER[HTTP_HOST]/Piknix/web-info.php?loc=";
+	$backUrl = "http://$_SERVER[HTTP_HOST]/Piknix/index.php";
 
 	$dbservername="localhost";
 	$dbusername="piknix";
@@ -44,7 +45,10 @@
 					<p class="small-text"><?php echo $row["location"]; ?><p>
 				</div>
 				<div id="over-image-div">
-					<button class="over-image-button" onclick=<?php echo "window.location.href='".$webInfoURL.$locationId."&id=".$id."'"; ?>><span class="glyphicon glyphicon-info-sign"></span></button>
+					<div class="over-image-circle" onclick=<?php echo "window.location.href='".$webInfoURL.$locationId."&id=".$id."'"; ?>><p id="info-button-text">i</p></div>
+					<div class="over-image-circle" onclick=<?php echo "window.location.href='".$backUrl."'"; ?>>
+						<i class="material-icons md-10">chevron_left</i>
+					</div>
 				</div>
 			</div>
 			<div class="chat-room login-to-view-chat">

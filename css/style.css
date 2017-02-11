@@ -48,6 +48,7 @@ body {
 .landing-header-button:hover {
 	background-color: #F15A25;
 	color: white;
+	cursor: pointer;
 }
 
 .login-to-view-chat {
@@ -205,7 +206,8 @@ input[type="submit"]{
 	opacity: 0.8;
 }
 
-#web-info-picture {	
+#web-info-picture {
+	position: relative;	
 	background:color;
 	margin: auto;
 	margin-top:15px;
@@ -239,6 +241,43 @@ input[type="submit"]{
 	height: 30px;
 	background-color: white;
 }
+
+.close-circle {
+	background-color: transparent;
+	position: relative;
+	float: right;
+	border-radius: 50%;
+	color:white;
+	margin-top:5px;
+	margin-right: 5px;
+	width: 24px;
+	height: 24px;
+}
+
+.close-circle:hover {
+	background-color: white;
+	color:#F15A25;
+}
+
+.over-image-circle {
+	background-color: white;
+	position: relative;
+	float: right;
+	border-radius: 50%;
+	color:#F15A25;
+	margin-top:5px;
+	margin-right: 5px;
+	width: 24px;
+	height: 24px;
+	margin-right: 10px;
+}
+
+.over-image-circle:hover {
+	background-color: #F15A25;
+	color: white;
+	cursor: pointer;
+}
+
 
 .username-text {
 	position: relative;
@@ -331,16 +370,19 @@ input[type="submit"]{
 	font-size:12px;
 }
 
-#left-arrow {
+.left-arrow {
+	position: relative;
+	background-color: Transparent;
+	border:none;
 	float:left;
-	margin-left:15px;
-	margin-top: 20%;
 }
 
-#right-arrow {
+.right-arrow {
+	position: relative;
+	background-color: Transparent;
+	border:none;
 	float:right;
-	margin-right:15px;
-	margin-top: 20%;
+	
 }
 
 #web-info-text-picture {
@@ -348,13 +390,18 @@ input[type="submit"]{
 	background-color:black;
 	height:45px;
 	width: 130px;
-	margin-left: 0px;
-	margin-top:30%;
+	margin-top: 20px;
+	margin-left: 20px;
 	line-height: 10px;
 	text-align:left;
 	padding-left: 8px;
 	padding-top: 8px;
 	opacity: 0.8;
+}
+
+.info-button {
+	font-weight: 1500;
+	font-size: 18px;
 }
 
 
@@ -369,6 +416,7 @@ input[type="submit"]{
 	margin-top:30px;
 	padding-right: 20px;
 }
+
 
 .trip-gender-box {
 	float: left;
@@ -716,3 +764,23 @@ input[type="submit"]{
 	margin-top: 20px;
 }
 
+.close-icon {
+
+}
+
+.slide-button-container {
+	position: relative;
+	width: 100%;
+	height: 30px;
+}
+
+#navigation-slide-button {
+	margin-top: 80px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#info-button-text {
+	margin-top: 1px;
+	font-size: 18px;
+}
