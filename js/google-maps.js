@@ -1,5 +1,5 @@
       var map;
-      var src = 'http://piknix.co.id/piknix.kml';
+      var src = 'http://piknix.co.id/piknix6.kmz';
 
       /**
        * Initializes the map and calls the function that loads the KML layer.
@@ -25,7 +25,18 @@
           map: map
         });
         google.maps.event.addListener(kmlLayer, 'click', function(event) {
+          var query = window.location.search.substring(1);
+          var query2 = query.split('id=');
+          var userId = parseInt(query2[1]);
           var content = event.featureData.infoWindowHtml;
+          var parseId = content.split('<div>');
+          var id = parseInt(parseId[1]);
+          if (userId == 0) {
+            window.location.href = "http://"+window.location.hostname+"/Piknix/landing-chatroom.php?loc="+id+"&id="+userId;
+          }
+          else {
+            window.location.href = "http://"+window.location.hostname+"/Piknix/chatroom.php?loc="+id+"&id="+userId;
+          }
           var testimonial = document.getElementById('capture');
           testimonial.innerHTML = content;
         });

@@ -32,45 +32,8 @@ function showTripDescription(description) {
 	}
 }
 
-function showSearchMenu() {
-	document.getElementById("function-menu").innerHTML = '<form name="search" action="" method="post">'+
-															'<input type="text" id="search" name="searchText" class="center-text" placeholder="Type to Search">'+
-														 '</form>';
-}
 
-function showUserMenu(username) {
-	document.getElementById("function-menu").innerHTML = '<div id="function-menu-box">'+
-															'<div id="username"><div id="photo-modal-button" class="photo-circle"></div><p class="username-text">username</p> <i class="glyphicon glyphicon-log-out"></i></div>'+
-													  		    '<div id="bookmark-button"><div class="circle"><i class="glyphicon glyphicon-plane glyp-inside-circle"></i></div><p class="center-text">trip</p></div>'+
-													  		    '<div id="bookmark-button"><div class="circle"><i class="glyphicon glyphicon-pushpin glyp-inside-circle"></i></div><p class="center-text">bookmarks</p></div>'+
-													  		    '<div id="photo-modal" class="modal">'+
-																 	'<div class="modal-content">'+
-																 		'<div class="modal-header">'+
-													      					'<span id="exit" class="close">&times;</span>'+
-													      					'<h3>set your profile picture</h3>'+
-													    				'</div>'+
-																    	'<div class="modal-body">'+
-																	      	'<form name="photo" action="" method="post">'+
-																	      		'<input type="hidden" name="userId" value=<?php $userId; ?>>'+
-																	      		'<input type="file" name="file" onchange="readURL(this);" />'+
-																	      		'<br>'+
-																	      		'<br>'+
-																	      		'<div style="width: 200px; height:200px">'+
-																	      			'<img id="blah" src="#" alt="your image" />'+
-																	      		'</div>'+
-																	      		'<br>'+
-																	      		'<br>'+
-																	      		'<input type="submit" value="upload">'+
-																	  			'<br>'+
-																	      	'</form>'+
-																	    '</div>'+
-																	    '<div class="modal-footer">'+
-																	    '</div>'+
-																	'</div>'+
-																'</div>'+
-															'</div>'+
-														'</div>';
-}
+
 
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -101,5 +64,57 @@ function readURL(input) {
 		instructionText: 'Drag to crop',
 		instructionHideOnHover: true,});
     }
+}
+
+
+function mainMenuClicked(menuId) {
+	var currentMenu = document.getElementById("currentActiveMenu").value;
+	console.log(currentMenu);
+	if (currentMenu == "1") {
+		document.getElementById("search-button").style.backgroundColor = "#F8F8F8";
+		document.getElementById("search-button").style.color = "#F15A25";
+	}
+	else if (currentMenu == "2") {
+		document.getElementById("recent-chat-button").style.backgroundColor = "#F8F8F8";
+		document.getElementById("recent-chat-button").style.color = "#F15A25";
+	}
+	else if (currentMenu == "3") {
+		document.getElementById("user-button").style.backgroundColor = "#F8F8F8";
+		document.getElementById("user-button").style.color = "#F15A25";
+	}
+	else if (currentMenu == "4") {
+		document.getElementById("more-button").style.backgroundColor = "#F8F8F8";
+		document.getElementById("more-button").style.color = "#F15A25";
+	}
+
+	if (currentMenu == menuId) {
+		menuId = 0;
+		document.getElementById("currentActiveMenu").value = "0";
+	}
+
+	if (menuId == 1) {
+		document.getElementById("search-button").style.backgroundColor = "#F15A25";
+		document.getElementById("search-button").style.color = "white";
+		document.getElementById("currentActiveMenu").value = "1";
+	}
+	else if (menuId == 2) {
+		document.getElementById("recent-chat-button").style.backgroundColor = "#F15A25";
+		document.getElementById("recent-chat-button").style.color = "white";
+		document.getElementById("currentActiveMenu").value = "2";
+	}
+	else if (menuId == 3) {
+		document.getElementById("user-button").style.backgroundColor = "#F15A25";
+		document.getElementById("user-button").style.color = "white";
+		document.getElementById("currentActiveMenu").value = "3";
+	}
+	else if (menuId == 4) {
+		document.getElementById("more-button").style.backgroundColor = "#F15A25";
+		document.getElementById("more-button").style.color = "white";
+		document.getElementById("currentActiveMenu").value = "4";
+	}
+
+
+	    $('.user-menu').hide();
+	    $('.more-menu').show();
 }
 

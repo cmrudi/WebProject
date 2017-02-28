@@ -10,6 +10,7 @@ function get_header() {
 	  <meta charset="utf-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
@@ -21,6 +22,7 @@ function get_header() {
 	</head>
 	<body>
 
+	<input type="hidden" id="currentActiveMenu" value="">
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 		<div class="navbar-header">
@@ -33,10 +35,26 @@ function get_header() {
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 		  <ul class="nav navbar-nav navbar-right">
-			<li><a onclick="showSearchMenu()"><span class="glyphicon glyphicon-search"></span></a></li>
-			<li><a href=<?php if ($userId != null) {echo "active-chat.php?id=".$userId; } else {echo "index.php"; } ?>><span class="glyphicon glyphicon-comment"></span></a></li>
-			<li><a onclick="showUserMenu('username')"><span class="glyphicon glyphicon-user"></span></a></li>
-			<li><a href=<?php if ($userId != null) {echo "general-menu.php?id=".$userId; } else {echo "general-menu.php"; } ?>><span class="glyphicon glyphicon-align-justify"></span></a></li> 
+			<li>
+				<div onclick="mainMenuClicked(1)" id="search-button" class="landing-header-button-google tab-search">
+					<i class="material-icons md-24">search</i>
+				</div>
+			</li>
+			<li>
+				<div onclick="mainMenuClicked(2)" id="recent-chat-button" class="landing-header-button-google">
+					<i class="material-icons md-24">chat_bubble_outline</i>
+				</div>
+			</li>
+			<li>
+				<div onclick="mainMenuClicked(3)" id="user-button" class="landing-header-button-google tab-user">
+					<i class="material-icons md-24">perm_identity</i>
+				</div>
+			</li>
+			<li>
+				<div onclick="mainMenuClicked(4)" id="more-button" class="landing-header-button-google tab-more">
+					<i class="material-icons md-24">more_horiz</i>
+				</div>
+			</li>
 		  </ul>
 		</div>
 	  </div>
