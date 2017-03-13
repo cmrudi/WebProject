@@ -3,6 +3,7 @@
 function get_main_menu($userId) { 
 	$targetSearch = "http://$_SERVER[HTTP_HOST]/Piknix/home.php?id=".$userId;
 	$bookmark = "http://$_SERVER[HTTP_HOST]/Piknix/bookmark.php?id=";
+	$updateDataUrl = "http://$_SERVER[HTTP_HOST]/Piknix/backend/updateUserData.php";
 
 	$dbservername="localhost";
 	$dbusername="piknix";
@@ -15,10 +16,13 @@ function get_main_menu($userId) {
 			exit();
 	}
 
-	$query = "SELECT username FROM user_auth WHERE id = '$userId'";
+	$query = "SELECT username,name,birth_date,city FROM user_auth WHERE id = '$userId'";
 	$result = mysqli_query($conn,$query);
 	$row = $result->fetch_assoc();
 	$username = $row["username"];
+	$name = $row["name"];
+	$birthdate = $row["birth_date"];
+	$city = $row["city"];
 
 
 
@@ -50,17 +54,28 @@ function get_main_menu($userId) {
 		    			</div>
 					    <div class="modal-body">
 					      	<form name="photo" action="" method="post">
-					      		<input type="hidden" name="userId" value=<?php $userId; ?>>
-					      		<input type="file" name="file" onchange="readURL(this);" />
-					      		<br>
-					      		<br>
-					      		<div style="width: 200px; height:200px">
-					      			<img id="blah" src="#" alt="your image" />
-					      		</div>
-					      		<br>
-					      		<br>
-					      		<input type="submit" value="upload">
-					  			<br>
+					      		<div class="uploader">
+								    <canvas id="imageCanvas" class="image-canvas"></canvas>
+								    <div class="profile-pic-wrap">
+								        <div id="demo-basic"></div>
+								    </div>
+								    <div class="download-button">
+								      <input type="file" name="file" id="imageLoader" class="inputfile" />
+								      <label for="imageLoader">Choose Photo</label>
+								      <a class="basic-result button">Preview</a>
+								    </div>
+							  	</div>
+					      	</form>
+					      	<form class="edit-user-data-form" name="edit-user-data" action=<?php echo $updateDataUrl; ?> method="post">
+					      		<h3 id="hubungi-kami-text">Edit User Data</h3><br>
+					      		<br><p class="about-us-text">Nama</p>
+					      		<input class="about-us-text-box" type="text" name="fullname" value=<?php echo $name; ?>><br><br>
+					      		<p class="about-us-text">Kota</p>
+					      		<input class="about-us-text-box" type="city" name="city" value=<?php echo $city; ?>><br><br>
+					      		<p class="about-us-text">Tanggal Lahir</p>
+					      		<input class="about-us-text-box" type="date" name="birthdate" value=<?php echo $birthdate; ?>><br><br>
+					      		<input type="hidden" name="userid" value=<?php echo $userId;?>>
+								<input class="submit-button" type="submit" name="submit" value="Update">
 					      	</form>
 						</div>
 						<div class="modal-footer">
@@ -192,8 +207,11 @@ function get_main_menu($userId) {
   		    </div>
   		    <!--End ofFunction Menu Box for HIW and About us -->
 		</div>
-
-<script type="text/javascript">
+	<script src="js/jquery.js"></script>
+	<script src="js/croppie.js"></script>
+	<script src="js/sweetalert.min.js"></script>
+	<script src="js/app.js"></script>
+	<script type="text/javascript">
 	$('.tab-search').click(function(e){
 	    //make all tabs inact
 	    $('.search-menu').show();

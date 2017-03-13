@@ -18,6 +18,7 @@ function get_landing_form() {
 		<br><br>
 		<input class="submit-button" type="submit" value="Submit">
 		<br>
+
 	</form>
 	<form class="login-form" name="login-form" enctype="multipart/form-data" onsubmit="" method = "POST" action = <?php echo '"'.$targetLogin.'"'; ?> >
 		<br>
@@ -29,12 +30,20 @@ function get_landing_form() {
 		<br><br>
 		<input class="submit-button" type="submit" value="Submit">
 		<br>
+		
+		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+		</fb:login-button>
+		<div id="status">
+		</div>
+
 	</form>
 	<form class="search-form" name="search" method="post" action =<?php echo '"'.$targetSearch.'"'; ?>>
 		<input type="text" id="search" name="searchText" class="center-text" placeholder="Type to Search">
 	</form>
 
-	<script type="text/javascript">
+<script type="text/javascript">
+
+
 	$('.tab-login').click(function(e){
 	    //make all tabs inact
 	    $('.login-form').show();

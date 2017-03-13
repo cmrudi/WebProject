@@ -37,19 +37,15 @@
 		 
 	
 	?>
-	<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 	<!--Photo Editing -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-	<script src="imagesloaded.js"></script>
-	<link href="jquery.drag-n-crop.css" rel="stylesheet" type="text/css">
-	<script src="jquery.drag-n-crop.js"></script>
-	<!--Photo Editing -->
-	<!--<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">-->
-	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-	<!--<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="css/croppie.css">
+  	<link rel="stylesheet" href="css/sweetalert.css">
+  	<link rel="stylesheet" href="css/app.css">
+  	
+	<!--End of Photo Editing-->
+
 
 	<script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtTM7HTfmrIedFAbJYWFLLo0Et7CQxlew&callback=initMap"></script>

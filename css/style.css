@@ -856,3 +856,8 @@ input[type="submit"]{
 .bookmark-menu-text {
 	margin-top: 20px;
 }
+
+.edit-user-data-form {
+	width: 70%;
+	margin:auto;
+}

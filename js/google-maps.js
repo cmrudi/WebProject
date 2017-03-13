@@ -24,6 +24,9 @@
           preserveViewport: false,
           map: map
         });
+       
+
+
         google.maps.event.addListener(kmlLayer, 'click', function(event) {
           var query = window.location.search.substring(1);
           var query2 = query.split('id=');
@@ -40,7 +43,10 @@
           var testimonial = document.getElementById('capture');
           testimonial.innerHTML = content;
         });
+
       }
+
+     
 
 
  
