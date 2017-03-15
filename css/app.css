@@ -19,38 +19,12 @@
 }
 
 /* Customize default file input button */
-.inputfile {
- 	width: 0.1px;
- 	height: 0.1px;
- 	opacity: 0;
- 	overflow: hidden;
- 	position: absolute;
- 	z-index: -1;
- }
 
-
-.inputfile + label {
-  display: inline-block;
-  padding: 12px;
-  font-weight: bold;
-  color: white;
-  border-radius: 5px;
-  background-color: #FC2751;
-  transition: all 400ms ease;
-}
-
-.inputfile:focus + label,
-.inputfile + label:hover {
-   background-color: #EA6680;
-}
-
-.inputfile + label {
-	cursor: pointer;
-}
 
 /* Croppie CSS */
 .croppie-container {
   padding: 10px;
+  border-radius: 50% !important;
 }
 .croppie-container .cr-slider-wrap {
   margin-top: 5px;
@@ -62,6 +36,7 @@
 .cr-boundary {
   position: relative;
   background-color: #CCC;
+  border-radius: 50%;
 }
 
 .cr-boundary:before {
@@ -73,6 +48,19 @@
   width: 100%;
   background-image: url('../images/frame.png');
   background-size: 100%;
+  border-radius: 50%;
+}
+
+#demo-basic {
+  border-radius: 50% !important; 
+}
+
+.cr-viewport {
+  border-radius: 50% !important; 
+}
+
+.cr-overlay {
+  border-radius: 50% !important;
 }
 
 
@@ -97,6 +85,7 @@
 .image-canvas {
   width: 200px;
   height: 200px;
+  border-radius: 50% !important;
   display: none;
 }
 
@@ -152,6 +141,8 @@ img {
   height: 5em;
 }
 
+
+
 @-webkit-keyframes load8 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -173,3 +164,4 @@ img {
     transform: rotate(360deg);
   }
 }
+

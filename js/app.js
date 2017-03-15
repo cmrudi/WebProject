@@ -118,7 +118,7 @@ $('#downloadlink').on('click', '.sweet-alert', function() {
 var basic = $('#demo-basic').croppie({
     viewport: {
         width: Math.min(150, window.innerWidth - 50),
-        height: Math.min(150, window.innerWidth - 50)
+        height: Math.min(150, window.innerWidth - 50),
     },
     boundary: {
       width: Math.min(150, window.innerWidth - 50),

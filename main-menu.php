@@ -16,13 +16,14 @@ function get_main_menu($userId) {
 			exit();
 	}
 
-	$query = "SELECT username,name,birth_date,city FROM user_auth WHERE id = '$userId'";
+	$query = "SELECT username,name,birth_date,city,password FROM user_auth WHERE id = '$userId'";
 	$result = mysqli_query($conn,$query);
 	$row = $result->fetch_assoc();
 	$username = $row["username"];
 	$name = $row["name"];
 	$birthdate = $row["birth_date"];
 	$city = $row["city"];
+	$password = $row["password"];
 
 
 
@@ -47,39 +48,44 @@ function get_main_menu($userId) {
 		  			<div id="bookmark-button"><div class="circle"><i class="material-icons md-24 glyp-inside-circle">bookmark</i></div><p class="center-text bookmark-menu-text">bookmarks</p></div>
 		  		</a>
 		  		<div id="photo-modal" class="modal">
-					<div class="modal-content">
+					<div class="wide-modal modal-content">
 					 	<div class="modal-header">
 		      				<span id="exit" class="close">&times;</span>
 		      				<h3>set your profile picture</h3>
 		    			</div>
-					    <div class="modal-body">
-					      	<form name="photo" action="" method="post">
-					      		<div class="uploader">
-								    <canvas id="imageCanvas" class="image-canvas"></canvas>
-								    <div class="profile-pic-wrap">
-								        <div id="demo-basic"></div>
-								    </div>
-								    <div class="download-button">
-								      <input type="file" name="file" id="imageLoader" class="inputfile" />
-								      <label for="imageLoader">Choose Photo</label>
-								      <a class="basic-result button">Preview</a>
-								    </div>
-							  	</div>
-					      	</form>
-					      	<form class="edit-user-data-form" name="edit-user-data" action=<?php echo $updateDataUrl; ?> method="post">
-					      		<h3 id="hubungi-kami-text">Edit User Data</h3><br>
-					      		<br><p class="about-us-text">Nama</p>
-					      		<input class="about-us-text-box" type="text" name="fullname" value=<?php echo $name; ?>><br><br>
-					      		<p class="about-us-text">Kota</p>
-					      		<input class="about-us-text-box" type="city" name="city" value=<?php echo $city; ?>><br><br>
-					      		<p class="about-us-text">Tanggal Lahir</p>
-					      		<input class="about-us-text-box" type="date" name="birthdate" value=<?php echo $birthdate; ?>><br><br>
-					      		<input type="hidden" name="userid" value=<?php echo $userId;?>>
-								<input class="submit-button" type="submit" name="submit" value="Update">
-					      	</form>
+					    <div class="modal-body row">
+					    	<div id="contact-us-left" class="col-md-6">
+								<form name="photo" action="" method="post">
+						      		<div class="uploader">
+									    <canvas id="imageCanvas" class="image-canvas"></canvas>
+									    <div class="profile-pic-wrap">
+									        <div id="demo-basic"></div>
+									    </div>
+									    <div class="download-button">
+									      <input type="file" name="file" id="imageLoader" class="submit-button"/>
+									      <label for="imageLoader">Choose Photo</label>
+									      <a class="basic-result button">Preview</a>
+									    </div>
+								  	</div>
+					      		</form>
+							</div>
+							<div class="col-md-6">
+								<form class="edit-user-data-form" name="edit-user-data" action=<?php echo $updateDataUrl; ?> method="post">
+						      		<h3 id="hubungi-kami-text">Edit User Data</h3><br>
+						      		<br><p class="about-us-text">Nama</p>
+						      		<input class="about-us-text-box" type="text" name="fullname" value=<?php echo $name; ?>><br><br>
+						      		<p class="about-us-text">Kota</p>
+						      		<input class="about-us-text-box" type="city" name="city" value=<?php echo $city; ?>><br><br>
+						      		<p class="about-us-text">Tanggal Lahir</p>
+						      		<input class="about-us-text-box" type="date" name="birthdate" value=<?php echo $birthdate; ?>><br><br>
+						      		<p class="about-us-text">Password</p>
+						      		<input class="about-us-text-box" type="password" name="birthdate" value=<?php echo $password; ?>><br><br>
+						      		<input type="hidden" name="userid" value=<?php echo $userId;?>>
+									<input class="submit-button" type="submit" name="submit" value="Update">
+						      	</form>
+							</div>
 						</div>
-						<div class="modal-footer">
-						</div>
+						<div class="modal-footer"></div>
 					</div>
 				</div>
 			</div>
